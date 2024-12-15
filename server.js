@@ -47,6 +47,21 @@ app.post('/upload', upload.fields([{ name: 'report1' }, { name: 'report2' }]), (
   res.json({ report1: report1Path, report2: report2Path });
 });
 
+// Cleanup endpoint to delete all files in the uploads folder
+app.post('/cleanup', (req, res) => {
+  if (fs.existsSync(UPLOADS_DIR)) {
+    const files = fs.readdirSync(UPLOADS_DIR);
+    files.forEach((file) => {
+      const filePath = path.join(UPLOADS_DIR, file);
+      if (fs.lstatSync(filePath).isFile()) {
+        fs.unlinkSync(filePath); // Delete each file
+      }
+    });
+    console.log('Uploads directory cleaned.');
+  }
+  res.status(200).json({ message: 'Uploads cleaned up successfully' });
+});
+
 // Start the server
 const PORT = 3000;
 app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));

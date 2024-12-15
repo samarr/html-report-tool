@@ -43,7 +43,7 @@
   <script>
     document.getElementById('uploadForm').addEventListener('submit', function (event) {
       event.preventDefault(); // Prevent default form submission
-
+  
       const formData = new FormData(this);
       fetch('/upload', {
         method: 'POST',
@@ -58,7 +58,7 @@
           console.error('Error uploading files:', error);
         });
     });
-
+  
     // Reset button functionality
     document.getElementById('resetButton').addEventListener('click', function () {
       // Clear the form fields
@@ -66,7 +66,31 @@
       // Clear the iframes
       document.getElementById('left-frame').src = '';
       document.getElementById('right-frame').src = '';
+  
+      // Call the cleanup endpoint to delete the files in the server
+      fetch('/cleanup', { method: 'POST' })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log('Uploads cleaned up');
+        })
+        .catch((error) => {
+          console.error('Error cleaning up files:', error);
+        });
     });
+  
+    // // Back button functionality
+    // document.querySelector('button[onclick="window.location.href=\'index.html\'"]').addEventListener('click', function () {
+    //   // Call the cleanup endpoint to delete the files when going back
+    //   fetch('/cleanup', { method: 'POST' })
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //       console.log('Uploads cleaned up');
+    //     })
+    //     .catch((error) => {
+    //       console.error('Error cleaning up files:', error);
+    //     });
+    // });
   </script>
+  
 </body>
 </html>

@@ -1,0 +1,73 @@
+/* General styling */
+.upload-section {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #c4c3c3;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  /* max-width: 800px; */
+  width: 98%;
+}
+
+.upload-section h2 {
+  margin-top: 0;
+  font-size: 1.5em;
+}
+
+.form-group-horizontal {
+  display: flex;
+  justify-content: space-between; /* This will align the form groups horizontally */
+  gap: 20px; /* Space between the fields */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column; /* Stack label and input vertically inside each group */
+  flex: 1;
+}
+
+label {
+  margin-bottom: 5px;
+  font-size: 1em;
+}
+
+input[type="file"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button[type="submit"] {
+  width: 20%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px auto 0; /* This centers the button horizontally */
+  display: block; /* Makes the button block-level so margin auto works */
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Comparison section */
+.comparison-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.comparison {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 200px);
+}
+
+iframe {
+  flex: 1;
+  border: 1px solid #ccc;
+  margin: 0 5px;
+}

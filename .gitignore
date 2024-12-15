@@ -6,6 +6,7 @@ Here's a basic `.gitignore` file to exclude unnecessary files and folders from b
 ```gitignore
 # Node.js dependencies
 node_modules/
+public/uploads/*
 
 # Logs
 npm-debug.log

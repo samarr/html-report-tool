@@ -24,7 +24,11 @@
             <input type="file" name="report2" id="report2" required>
           </div>
         </div>
-        <button type="submit">Compare</button>
+        <div class="button-container">
+          <button type="button" id="resetButton">Reset</button>
+          <button type="submit">Compare</button>
+          <button type="button" onclick="window.location.href='index.html'">Back</button>
+        </div>
       </form>
     </div>
 
@@ -53,6 +57,15 @@
         .catch((error) => {
           console.error('Error uploading files:', error);
         });
+    });
+
+    // Reset button functionality
+    document.getElementById('resetButton').addEventListener('click', function () {
+      // Clear the form fields
+      document.getElementById('uploadForm').reset();
+      // Clear the iframes
+      document.getElementById('left-frame').src = '';
+      document.getElementById('right-frame').src = '';
     });
   </script>
 </body>
